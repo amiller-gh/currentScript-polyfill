@@ -18,18 +18,17 @@
 
           // Find the second match for the "at" string to get file src url from stack.
           // Specifically works with the format of stack traces in IE.
-          currentScript = / *at [^\(]\((.*):.+:\).+/ig;
-          err = currentScript.exec(err.stack || '') && currentScript.exec(err.stack)[1];
+          var i, res = ((/.*at [^\(]*\((.*):.+:.+\)$/ig).exec(err.stack) || [false])[1];
 
           // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
           for(i in scripts){
-            if(scripts[i].src == err || scripts[i].readyState == "interactive"){
-              err = scripts[i];
+            if(scripts[i].src == res || scripts[i].readyState == "interactive"){
+              return scripts[i];
             }
           }
 
           // If no match, return null
-          return err || null;
+          return null;
         }
       }
     });
