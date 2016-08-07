@@ -1,5 +1,5 @@
 {
-  "name": "current-script",
+  "name": "current-script-polyfill",
   "version": "1.0.0",
   "description": "An exceptionally slim (~310kb minified) polyfill for document.currentScript in IE9+",
   "main": "currentScript.js",
