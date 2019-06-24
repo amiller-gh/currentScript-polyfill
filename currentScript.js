@@ -22,7 +22,7 @@
 
           // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
           for(i in scripts){
-            if(scripts[i].src == res || scripts[i].readyState == "interactive"){
+            if(res && scripts[i].src == res || scripts[i].readyState == "interactive"){
               return scripts[i];
             }
           }
